@@ -6,10 +6,13 @@ use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use App\Models\Transaction;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
+
 
 
 class WidgetExpendsChart extends ChartWidget
 {
+    use InteractsWithPageFilters;
     protected static ?string $heading = 'Pengeluaran';
     protected static string $color = 'danger';
 
@@ -26,7 +29,7 @@ class WidgetExpendsChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Blog posts',
+                    'label' => 'Pengeluaran',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],

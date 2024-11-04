@@ -6,9 +6,13 @@ use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use App\Models\Transaction;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
+
+
 
 class WidgetIncomeChart extends ChartWidget
 {
+    use InteractsWithPageFilters;
     protected static ?string $heading = 'Pemasukan';
     protected static string $color = 'success';
 
@@ -25,7 +29,7 @@ class WidgetIncomeChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Blog posts',
+                    'label' => 'Pemasukan',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],
