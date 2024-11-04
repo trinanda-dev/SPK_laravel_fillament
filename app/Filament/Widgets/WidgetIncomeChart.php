@@ -9,7 +9,6 @@ use App\Models\Transaction;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
 
-
 class WidgetIncomeChart extends ChartWidget
 {
     use InteractsWithPageFilters;
